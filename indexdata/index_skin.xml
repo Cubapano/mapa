@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.19-pr16">
+
+    
+  <!-- Spot Style - Enlace -->
+
+
+  <style name="IconEnlace"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint1.png"
+         visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         onloaded="startspotanimation(0.1);showPermanentTooltip(all);"
+
+
+         />
+
+
+
+    
+  <!-- Spot Style - Default Point Spot Style 1 -->
+
+
+  <style name="IconDefaultPointSpotStyle1"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint2.png"
+         visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         alpha="0.8"
+         onloaded="startspotanimation(0.1);showPermanentTooltip(all);"
+         onover="onoverIconDefaultPointSpotStyle1"
+         onout="onoutIconDefaultPointSpotStyle1"
+
+
+         />
+  <action name="onoverIconDefaultPointSpotStyle1">
+
+tween(alpha, 1);
+
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle1">
+
+    tween(alpha, 0.8);
+
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Volver UNFINISHED-D -->
+<!-- id : togglebuttonpanospecific2 -->
+<!-- ********** -->
+
+
+
+  <layer name="togglebuttonpanospecific2"
+         keep="true"
+         url="%FIRSTXML%/graphics/togglebuttonpanoramaspecific2/retorno.png" 
+         align="bottom"
+         x="10"
+         y="10"
+         zorder="1"
+         state="true"
+         onclick="togglebuttonpanospecific2OnClick"
+		 used_for_hotspots="false"
+         onout=""
+         height="40"
+         width="40"
+         visible="false"
+         />
+
+  <action name="togglebuttonpanospecific2OnClick">
+    if (state,
+      set(state, false);
+          mainloadscene(pano70);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+     ,
+      set(state, true);
+
+    );
+  </action>
+
+  <events name="togglebuttonpanospecific2events" 
+    onTourStart="showtogglebuttonpanospecific2();"
+    hidetourcontrols="hidetogglebuttonpanospecific2();" 
+    showtourcontrols="showtogglebuttonpanospecific2();" 
+    onPanoStart="showtogglebuttonpanospecific2();" 
+    keep="true" />
+  <action name="hidetogglebuttonpanospecific2">set(layer[togglebuttonpanospecific2].visible, false);</action>
+  <action name="showtogglebuttonpanospecific2">
+    set(displaytheplugin_togglebuttonpanospecific2, false);
+    if (tour_displaycontrols,
+    if (xml.scene == pano83, set(displaytheplugin_togglebuttonpanospecific2, true); );
+    );
+    if (displaytheplugin_togglebuttonpanospecific2,
+      set(layer[togglebuttonpanospecific2].visible, true);
+    ,
+      hidetogglebuttonpanospecific2();
+    );
+  </action>
+
+
+<!-- ********** -->
+<!-- Volver UNFINISHED-A -->
+<!-- id : togglebuttonpanospecific -->
+<!-- ********** -->
+
+
+
+  <layer name="togglebuttonpanospecific"
+         keep="true"
+         url="%FIRSTXML%/graphics/togglebuttonpanoramaspecific/retorno.png" 
+         align="bottom"
+         x="10"
+         y="10"
+         zorder="2"
+         state="true"
+         onclick="togglebuttonpanospecificOnClick"
+		 used_for_hotspots="false"
+         onout=""
+         height="40"
+         width="40"
+         visible="false"
+         />
+
+  <action name="togglebuttonpanospecificOnClick">
+    if (state,
+      set(state, false);
+          mainloadscene(pano148);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+     ,
+      set(state, true);
+
+    );
+  </action>
+
+  <events name="togglebuttonpanospecificevents" 
+    onTourStart="showtogglebuttonpanospecific();"
+    hidetourcontrols="hidetogglebuttonpanospecific();" 
+    showtourcontrols="showtogglebuttonpanospecific();" 
+    onPanoStart="showtogglebuttonpanospecific();" 
+    keep="true" />
+  <action name="hidetogglebuttonpanospecific">set(layer[togglebuttonpanospecific].visible, false);</action>
+  <action name="showtogglebuttonpanospecific">
+    set(displaytheplugin_togglebuttonpanospecific, false);
+    if (tour_displaycontrols,
+    if (xml.scene == pano121, set(displaytheplugin_togglebuttonpanospecific, true); );
+    );
+    if (displaytheplugin_togglebuttonpanospecific,
+      set(layer[togglebuttonpanospecific].visible, true);
+    ,
+      hidetogglebuttonpanospecific();
+    );
+  </action>
+
+
+<!-- ********** -->
+<!-- Volver UNFINISHED-F -->
+<!-- id : togglebuttonpanospecific1 -->
+<!-- ********** -->
+
+
+
+  <layer name="togglebuttonpanospecific1"
+         keep="true"
+         url="%FIRSTXML%/graphics/togglebuttonpanoramaspecific1/retorno.png" 
+         align="bottom"
+         x="10"
+         y="10"
+         zorder="3"
+         state="true"
+         onclick="togglebuttonpanospecific1OnClick"
+		 used_for_hotspots="false"
+         onout=""
+         height="40"
+         width="40"
+         visible="false"
+         />
+
+  <action name="togglebuttonpanospecific1OnClick">
+    if (state,
+      set(state, false);
+          mainloadscene(pano39);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+     ,
+      set(state, true);
+
+    );
+  </action>
+
+  <events name="togglebuttonpanospecific1events" 
+    onTourStart="showtogglebuttonpanospecific1();"
+    hidetourcontrols="hidetogglebuttonpanospecific1();" 
+    showtourcontrols="showtogglebuttonpanospecific1();" 
+    onPanoStart="showtogglebuttonpanospecific1();" 
+    keep="true" />
+  <action name="hidetogglebuttonpanospecific1">set(layer[togglebuttonpanospecific1].visible, false);</action>
+  <action name="showtogglebuttonpanospecific1">
+    set(displaytheplugin_togglebuttonpanospecific1, false);
+    if (tour_displaycontrols,
+    if (xml.scene == pano34, set(displaytheplugin_togglebuttonpanospecific1, true); );
+    );
+    if (displaytheplugin_togglebuttonpanospecific1,
+      set(layer[togglebuttonpanospecific1].visible, true);
+    ,
+      hidetogglebuttonpanospecific1();
+    );
+  </action>
+
+
+<!-- ********** -->
+<!-- Foods-OFF-148 -->
+<!-- id : buttonForASinglePano7 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano7"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano7/boton_restaurantes_2.png"
+         align="topleft"
+         x="80"
+         y="10"
+         zorder="4"
+         visible="false"
+         onclick="buttonForASinglePano7OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano7OnClick">
+          mainloadscene(pano70);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano7events"
+    onTourStart="showbuttonForASinglePano7();"
+    hidetourcontrols="hidebuttonForASinglePano7();"
+    showtourcontrols="showbuttonForASinglePano7();"
+
+    onPanoStart="showbuttonForASinglePano7();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano7">set(layer[buttonForASinglePano7].visible, false);</action>
+  <action name="showbuttonForASinglePano7">
+    set(display_buttonForASinglePano7, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano148, set(display_buttonForASinglePano7, true); );
+
+
+    );
+    if (display_buttonForASinglePano7,
+      set(layer[buttonForASinglePano7].visible, true);
+    ,
+      hidebuttonForASinglePano7();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Drinks-OFF-148 -->
+<!-- id : buttonForASinglePano -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano/boton_bares_2.png"
+         align="topleft"
+         x="10"
+         y="10"
+         zorder="5"
+         visible="false"
+         onclick="buttonForASinglePanoOnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePanoOnClick">
+          mainloadscene(pano39);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePanoevents"
+    onTourStart="showbuttonForASinglePano();"
+    hidetourcontrols="hidebuttonForASinglePano();"
+    showtourcontrols="showbuttonForASinglePano();"
+
+    onPanoStart="showbuttonForASinglePano();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano">set(layer[buttonForASinglePano].visible, false);</action>
+  <action name="showbuttonForASinglePano">
+    set(display_buttonForASinglePano, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano148, set(display_buttonForASinglePano, true); );
+
+
+    );
+    if (display_buttonForASinglePano,
+      set(layer[buttonForASinglePano].visible, true);
+    ,
+      hidebuttonForASinglePano();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Foods-ON-70 -->
+<!-- id : buttonForASinglePano5 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano5"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano5/boton_restaurantes_1.png"
+         align="topleft"
+         x="80"
+         y="10"
+         zorder="6"
+         visible="false"
+         onclick="buttonForASinglePano5OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano5OnClick">
+          mainloadscene(pano148);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano5events"
+    onTourStart="showbuttonForASinglePano5();"
+    hidetourcontrols="hidebuttonForASinglePano5();"
+    showtourcontrols="showbuttonForASinglePano5();"
+
+    onPanoStart="showbuttonForASinglePano5();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano5">set(layer[buttonForASinglePano5].visible, false);</action>
+  <action name="showbuttonForASinglePano5">
+    set(display_buttonForASinglePano5, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano70, set(display_buttonForASinglePano5, true); );
+
+
+    );
+    if (display_buttonForASinglePano5,
+      set(layer[buttonForASinglePano5].visible, true);
+    ,
+      hidebuttonForASinglePano5();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Drinks-OFF-70 -->
+<!-- id : buttonForASinglePano1 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano1"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano1/boton_bares_2.png"
+         align="topleft"
+         x="10"
+         y="10"
+         zorder="7"
+         visible="false"
+         onclick="buttonForASinglePano1OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano1OnClick">
+          mainloadscene(pano10);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano1events"
+    onTourStart="showbuttonForASinglePano1();"
+    hidetourcontrols="hidebuttonForASinglePano1();"
+    showtourcontrols="showbuttonForASinglePano1();"
+
+    onPanoStart="showbuttonForASinglePano1();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano1">set(layer[buttonForASinglePano1].visible, false);</action>
+  <action name="showbuttonForASinglePano1">
+    set(display_buttonForASinglePano1, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano70, set(display_buttonForASinglePano1, true); );
+
+
+    );
+    if (display_buttonForASinglePano1,
+      set(layer[buttonForASinglePano1].visible, true);
+    ,
+      hidebuttonForASinglePano1();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Foods-OFF-39 -->
+<!-- id : buttonForASinglePano6 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano6"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano6/boton_restaurantes_2.png"
+         align="topleft"
+         x="80"
+         y="10"
+         zorder="8"
+         visible="false"
+         onclick="buttonForASinglePano6OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano6OnClick">
+          mainloadscene(pano10);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano6events"
+    onTourStart="showbuttonForASinglePano6();"
+    hidetourcontrols="hidebuttonForASinglePano6();"
+    showtourcontrols="showbuttonForASinglePano6();"
+
+    onPanoStart="showbuttonForASinglePano6();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano6">set(layer[buttonForASinglePano6].visible, false);</action>
+  <action name="showbuttonForASinglePano6">
+    set(display_buttonForASinglePano6, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano39, set(display_buttonForASinglePano6, true); );
+
+
+    );
+    if (display_buttonForASinglePano6,
+      set(layer[buttonForASinglePano6].visible, true);
+    ,
+      hidebuttonForASinglePano6();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Drinks-ON-39 -->
+<!-- id : buttonForASinglePano3 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano3"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano3/boton_bares_1.png"
+         align="topleft"
+         x="10"
+         y="10"
+         zorder="9"
+         visible="false"
+         onclick="buttonForASinglePano3OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano3OnClick">
+          mainloadscene(pano148);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano3events"
+    onTourStart="showbuttonForASinglePano3();"
+    hidetourcontrols="hidebuttonForASinglePano3();"
+    showtourcontrols="showbuttonForASinglePano3();"
+
+    onPanoStart="showbuttonForASinglePano3();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano3">set(layer[buttonForASinglePano3].visible, false);</action>
+  <action name="showbuttonForASinglePano3">
+    set(display_buttonForASinglePano3, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano39, set(display_buttonForASinglePano3, true); );
+
+
+    );
+    if (display_buttonForASinglePano3,
+      set(layer[buttonForASinglePano3].visible, true);
+    ,
+      hidebuttonForASinglePano3();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Foods-ON-10 -->
+<!-- id : buttonForASinglePano4 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano4"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano4/boton_restaurantes_1.png"
+         align="topleft"
+         x="80"
+         y="10"
+         zorder="10"
+         visible="false"
+         onclick="buttonForASinglePano4OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano4OnClick">
+          mainloadscene(pano39);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano4events"
+    onTourStart="showbuttonForASinglePano4();"
+    hidetourcontrols="hidebuttonForASinglePano4();"
+    showtourcontrols="showbuttonForASinglePano4();"
+
+    onPanoStart="showbuttonForASinglePano4();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano4">set(layer[buttonForASinglePano4].visible, false);</action>
+  <action name="showbuttonForASinglePano4">
+    set(display_buttonForASinglePano4, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano10, set(display_buttonForASinglePano4, true); );
+
+
+    );
+    if (display_buttonForASinglePano4,
+      set(layer[buttonForASinglePano4].visible, true);
+    ,
+      hidebuttonForASinglePano4();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Drinks-ON-10 -->
+<!-- id : buttonForASinglePano2 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano2"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano2/boton_bares_1.png"
+         align="topleft"
+         x="10"
+         y="10"
+         zorder="11"
+         visible="false"
+         onclick="buttonForASinglePano2OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano2OnClick">
+          mainloadscene(pano70);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano2events"
+    onTourStart="showbuttonForASinglePano2();"
+    hidetourcontrols="hidebuttonForASinglePano2();"
+    showtourcontrols="showbuttonForASinglePano2();"
+
+    onPanoStart="showbuttonForASinglePano2();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano2">set(layer[buttonForASinglePano2].visible, false);</action>
+  <action name="showbuttonForASinglePano2">
+    set(display_buttonForASinglePano2, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano10, set(display_buttonForASinglePano2, true); );
+
+
+    );
+    if (display_buttonForASinglePano2,
+      set(layer[buttonForASinglePano2].visible, true);
+    ,
+      hidebuttonForASinglePano2();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Filter-OFF-39-70-148 -->
+<!-- id : buttonForASinglePano8 -->
+<!-- ********** -->
+
+  <layer name="buttonForASinglePano8"
+         keep="true"
+         url="%FIRSTXML%/graphics/buttonforasinglepano8/boton_filtro_2.png"
+         align="topleft"
+         x="200"
+         y="10"
+         zorder="12"
+         visible="false"
+         onclick="buttonForASinglePano8OnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonForASinglePano8OnClick">
+          mainloadscene(pano10);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+
+
+  </action>
+
+  <events name="buttonForASinglePano8events"
+    onTourStart="showbuttonForASinglePano8();"
+    hidetourcontrols="hidebuttonForASinglePano8();"
+    showtourcontrols="showbuttonForASinglePano8();"
+
+    onPanoStart="showbuttonForASinglePano8();"
+
+    keep="true" />
+  <action name="hidebuttonForASinglePano8">set(layer[buttonForASinglePano8].visible, false);</action>
+  <action name="showbuttonForASinglePano8">
+    set(display_buttonForASinglePano8, false);
+    if(tour_displaycontrols,
+
+
+    if (xml.scene == pano39, set(display_buttonForASinglePano8, true); );
+
+    if (xml.scene == pano70, set(display_buttonForASinglePano8, true); );
+
+    if (xml.scene == pano148, set(display_buttonForASinglePano8, true); );
+
+
+    );
+    if (display_buttonForASinglePano8,
+      set(layer[buttonForASinglePano8].visible, true);
+    ,
+      hidebuttonForASinglePano8();
+    );
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Área coloreada -->
+<!-- id : coloredarea -->
+<!-- ********** -->
+
+  <layer name="coloredarea"
+         keep="true"
+         type="container"
+         align="topleft"
+         x="0"
+         y="0"
+         zorder="13"
+         height="60"
+         width="100%"
+         
+         visible="false"
+         bgcolor="0xd6d6d6"
+         bgalpha="0.20000000000000001"
+         />
+
+  <events name="coloredareaevents"
+    onTourStart="showcoloredarea();"
+    hidetourcontrols="hidecoloredarea();"
+    showtourcontrols="showcoloredarea();"
+    keep="true"/>
+
+  <action name="hidecoloredarea">
+    set(layer[coloredarea].visible, false);
+  </action>
+  <action name="showcoloredarea">
+    set(layer[coloredarea].visible, true);
+  </action>
+
+
+<!-- ********** -->
+<!-- Logo -->
+<!-- id : logo -->
+<!-- ********** -->
+
+
+  <layer align="topright"
+         x="10"
+         y="15"
+         zorder="14"
+         name="logo"
+         keep="true"
+         visible="false"
+         capture="false"
+
+			tooltip="logotooltipText"
+			onhover="showTooltip('plugin');"
+			onout="hideTooltip();"
+         url="%FIRSTXML%/graphics/logo/recurso_1_3x.png" 
+         handcursor="false"
+
+
+         />
+
+  <events name="logoevents" 
+    onTourStart="showlogo();"
+    keep="true" />
+
+  <action name="hidelogo">
+    set(layer[logo].visible, false);
+  </action>
+  <action name="showlogo">
+      set(layer[logo].visible, true);
+  </action>
+
+
+
+
+
+</krpano>
