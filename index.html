@@ -4,7 +4,7 @@
 <title>Mapa Interactivo - Barcelo Solymar Arenas Blancas - Generado por Camilo Hdez.</title>
 <meta charset="utf-8" />
 
-<meta property="og:title" content="Mapa Interactivo - Barcelo Solymar Arenas Blancas" />
+<meta property="og:title" content="Mapa interactivo del Complejo Hotelero Barceló Solymar Arenas Blancas" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cubapano.github.io/mapa/index.html" />
 <meta property="og:image" content="https://cubapano.github.io/mapa/indexdata/thumbnail.jpg" />
@@ -47,6 +47,79 @@
 				user-select: none;
 			}
 
+			/* ===== CAMBIO 1.1: Mensaje de rotación para móviles ===== */
+			@media screen and (orientation: portrait) and (max-width: 768px) {
+				.rotate-message {
+					display: flex !important;
+				}
+				#tourDIV {
+					display: none !important;
+				}
+			}
+			.rotate-message {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #1a1a2e;
+				color: #ffffff;
+				justify-content: center;
+				align-items: center;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 1.4em;
+				z-index: 99999;
+				text-align: center;
+				padding: 30px;
+				box-sizing: border-box;
+				flex-direction: column;
+			}
+			.rotate-message .icon {
+				font-size: 4em;
+				margin-bottom: 20px;
+				animation: rotate-phone 2s ease-in-out infinite;
+			}
+			@keyframes rotate-phone {
+				0%, 100% { transform: rotate(0deg); }
+				50% { transform: rotate(90deg); }
+			}
+			.rotate-message .sub {
+				font-size: 0.6em;
+				opacity: 0.7;
+				margin-top: 10px;
+			}
+
+			/* ===== CAMBIO 1.2: Mejora para iOS (Safari) ===== */
+			@supports (-webkit-touch-callout: none) {
+				body {
+					height: -webkit-fill-available;
+				}
+				#container {
+					height: -webkit-fill-available;
+				}
+			}
+
+			/* ===== CAMBIO 1.3: Ocultar barra inferior de Safari en landscape ===== */
+			@media screen and (orientation: landscape) and (max-width: 768px) {
+				body {
+					height: 100%;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+				}
+				#container {
+					height: 100%;
+					width: 100%;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+				}
+			}
 
 		</style>
 				<!--[if !IE]><!-->
@@ -175,8 +248,48 @@
 				return false;
 			}
 		</script>
+
+		<!-- ===== CAMBIO 2: Script para forzar landscape en móviles ===== -->
+		<script type="text/javascript">
+			// Función para forzar orientación landscape
+			function forceLandscape() {
+				if (screen.orientation && typeof screen.orientation.lock === 'function') {
+					screen.orientation.lock('landscape').catch(function(error) {
+						console.log('No se pudo bloquear la orientación:', error);
+					});
+				}
+			}
+
+			// Función para verificar si es un dispositivo móvil
+			function isMobileDevice() {
+				return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(navigator.userAgent.toLowerCase());
+			}
+
+			// Ejecutar al cargar la página si es móvil
+			if (isMobileDevice()) {
+				forceLandscape();
+				window.addEventListener('orientationchange', function() {
+					setTimeout(forceLandscape, 300);
+				});
+				window.addEventListener('resize', function() {
+					setTimeout(forceLandscape, 300);
+				});
+			}
+		</script>
+
 	</head>
 	<body>
+
+		<!-- ===== CAMBIO 4: Mensaje de rotación ===== -->
+		<div class="rotate-message" id="rotateMessage">
+			<div class="icon">📱</div>
+			<div>
+				<strong>Gira tu dispositivo</strong><br>
+				para disfrutar del tour en <strong>horizontal</strong>
+			</div>
+			<div class="sub">↻ Gira el teléfono</div>
+		</div>
+
 		<div id="container">
 
 			<div id="tourDIV">
@@ -189,14 +302,109 @@
 				</div>
 
 				<script type="text/javascript" src="indexdata/index.js"></script>
+				<!-- ===== CAMBIO 5: Carga inteligente del tour (solo en horizontal) ===== -->
 				<script type="text/javascript">
-					if (isVRModeRequested()){
-						accessWebVr();
-					}else{
-						accessStdVr();
+					// Variable para controlar si el tour ya se ha cargado
+					var tourCargado = false;
+
+					// Función que carga el tour (solo se ejecuta en horizontal)
+					function cargarTour() {
+						if (!tourCargado && window.innerWidth > window.innerHeight) {
+							tourCargado = true;
+							if (isVRModeRequested()){
+								accessWebVr();
+							}else{
+								accessStdVr();
+							}
+							// Ocultar el mensaje de rotación si está visible
+							document.getElementById('rotateMessage').style.display = 'none';
+							document.getElementById('tourDIV').style.display = 'block';
+						}
 					}
+
+					// Función que verifica la orientación y carga o muestra mensaje
+					function verificarOrientacion() {
+						var esMovil = /(iphone|ipod|ipad|android|iemobile|webos|fennec|blackberry|kindle|series60|playbook|opera\smini|opera\smobi|opera\stablet|symbianos|palmsource|palmos|blazer|windows\sce|windows\sphone|wp7|bolt|doris|dorothy|gobrowser|iris|maemo|minimo|netfront|semc-browser|skyfire|teashark|teleca|uzardweb|avantgo|docomo|kddi|ddipocket|polaris|eudoraweb|opwv|plink|plucker|pie|xiino|benq|playbook|bb|cricket|dell|bb10|nintendo|up.browser|playstation|tear|mib|obigo|midp|mobile|tablet)/i.test(navigator.userAgent);
+
+						if (esMovil) {
+							if (window.innerWidth > window.innerHeight) {
+								// Está en horizontal
+								if (!tourCargado) {
+									// Si el tour NO se ha cargado aún, lo cargamos (caso: abrió en vertical y giró)
+									cargarTour();
+								} else {
+									// Si el tour YA está cargado, simplemente mostramos el tour y ocultamos el mensaje
+									document.getElementById('rotateMessage').style.display = 'none';
+									document.getElementById('tourDIV').style.display = 'block';
+								}
+							} else {
+								// Está en vertical → mostrar mensaje y ocultar tour (sin recargar)
+								document.getElementById('rotateMessage').style.display = 'flex';
+								document.getElementById('tourDIV').style.display = 'none';
+								// NO recargamos la página, solo ocultamos el tour
+							}
+						} else {
+							// No es móvil → cargar tour directamente
+							cargarTour();
+						}
+					}
+
+					// Ejecutar al cargar la página
+					window.addEventListener('load', function() {
+						// Pequeño retraso para asegurar que todo está listo
+						setTimeout(verificarOrientacion, 200);
+					});
+
+					// Escuchar cambios de orientación
+					window.addEventListener('orientationchange', function() {
+						setTimeout(verificarOrientacion, 400);
+					});
+
+					// Escuchar cambios de tamaño (por si acaso)
+					window.addEventListener('resize', function() {
+						setTimeout(verificarOrientacion, 300);
+					});
 				</script>
 			</div>
 		</div>
+
+		<!-- ===== CAMBIO 3: Script para Safari y barra de navegación ===== -->
+		<script type="text/javascript">
+			// Mejora para Safari en iOS: ocultar barras de navegación
+			function hideSafariUI() {
+				if (/iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase())) {
+					// Forzar scroll al inicio para ocultar la barra
+					window.scrollTo(0, 0);
+
+					// Intentar fullscreen (solo funciona con interacción del usuario)
+					if (document.documentElement && document.documentElement.requestFullscreen) {
+						document.documentElement.requestFullscreen().catch(function(e) {
+							// Silenciar error - normal en Safari sin interacción
+						});
+					}
+				}
+			}
+
+			// Ejecutar al cargar
+			hideSafariUI();
+
+			// Reintentar con interacción del usuario
+			document.addEventListener('touchstart', function() {
+				hideSafariUI();
+				if (/iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase())) {
+					if (document.documentElement && document.documentElement.requestFullscreen) {
+						document.documentElement.requestFullscreen().catch(function(e) {});
+					}
+				}
+			}, { once: true });
+
+			// Al cambiar de orientación, reajustar scroll
+			window.addEventListener('orientationchange', function() {
+				setTimeout(function() {
+					window.scrollTo(0, 0);
+				}, 300);
+			});
+		</script>
+
 	</body>
 </html>
